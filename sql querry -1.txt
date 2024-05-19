@@ -211,3 +211,15 @@ case
 end
 
 ) as Amount from students;
+
+
+16. offset?
+
+if you total 10 records and if you want last 5 records by using (select name, age, city from students order by name limit 4 offset 5;)
+
+1. here 4 is count of the record. 
+2. OFFSET dictates the number of rows to skip from the beginning of the returned data before presenting the results. 
+3. here it is skipping 5 bcz of offset 5.
+
+
+

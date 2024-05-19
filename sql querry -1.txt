@@ -27,6 +27,7 @@ describe users;
      add contact varchar(50) not null;
 describe USERES;
 
+alter table tablename change column name  updated columnname varchar(50);
 4. modifying the column :
 
     alter table users modify contact varchar(25) not null;

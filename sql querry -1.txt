@@ -1,0 +1,212 @@
+  database user name is Vijay
+  pwd Vijay@123
+
+
+1.
+
+create database myfile;
+use myfile;
+create table users(
+  ID INT NOT NULL AUTO_INCREMENT,
+  NAME VARCHAR(50) NOT NULL,
+  AGE INT NOT NULL,
+  PRIMARY KEY(ID)
+);
+
+show tables;
+describe users;
+
+2. adding new column an EXISTING  table 
+
+  alter table users add Gender varchar(10) Not null  after age;
+
+3. adding multiple column in table:
+
+    alter table users 
+     add city varchar(12) not null,
+     add contact varchar(50) not null;
+describe USERES;
+
+4. modifying the column :
+
+    alter table users modify contact varchar(25) not null;
+    ALTER TABLE table_name MODIFY COLUMN column_name new_column_definition;
+    
+     
+  **multiple column 
+
+       alter table users
+    -> modify city varchar(15) not null,
+    -> modify Gender varchar(8)not null;
+
+5. table name changing.
+
+   alter table users rename to students;
+
+6. Insert value into table 
+
+   insert into students values(null,'Vijay',25,'Male','Bangalore','8838578705');
+    insert into students (Name,age,Gender,City,contact) values ('Ram',28,'Male','Bangalore',9876543210); // Id auto increment
+
+   *** Multiple value **
+
+      insert into students (Name,age,gender,city,contact)values
+      ('Mohan',26,'Male','Chennai','7012346789'),('Sheela',22,'Female','Chennai','7012346789');
+
+7. Delete from the databse;
+
+    delete from students where id =4;
+
+8. Update querry;
+
+     update students  set city = 'Madurai', contact = '8090768910',age = 25 where id=2;
+      update students set name ='Leela'where id =19;
+
+9. Truncate 
+
+    truncate table students; -> Removed the all the data.
+
+
+    Permanently Deletes Data: Yes, TRUNCATE permanently removes all rows from a table. Once they're gone, there's no built-in    way to retrieve them through MySQL itself.
+
+   Faster Than DELETE: This is generally true, as TRUNCATE doesn't perform row-by-row logging or enforce constraints.
+
+10.
+
+   select name,age from students;
+    printing name and age.
+
+   select name,age,gender from students where gender ='male';
+
+11.
+
+
+Using and operator  city should be New York and who are all have age more than 23.
+
+Logical operator.
+
+1.select name,age,city from students where city ='New York' And age>23;
+
+2.select name,age from students where age>30;
+
+ get who are all have age more than 30.
+
+ 3.select name,city from students where city='New York' OR city ='chicago';
+
+ 4.select name,city,age from students where (city='New York' or city='chicago') and age>25;
+
+ 5. select name,age,city from students where (city='New York'OR city='chicago') And age>25 order by city;
+     city print order by.
+ 6. select name,age,city from students order by city;
+
+
+
+12 .
+
+ select city from students - students is table name 
+
+  printing the all the city 
+
+
+select distinct city from students;
+
+  this will print only unique of the city.
+
+ select count(city) from students;
+
+     this will count the number of city. 
+
+ select count(distinct city) from students;
+
+     This will print unique of the city.
+
+mysql> select count(distinct city) as total from students;
+
+as total this customize total and number unique city.
+
+
+ select * from students limit 1,5;  5 means 5 records.
+
+     This will print first 5 records
+
+ select * from students order by id desc limit 0,1;
+
+        des - descending coming from last 
+
+ select max(age) from students; // getting the highest age 
+ select avg(age) from students; getting the average value 
+
+  if we get in float 51.5 we can make round
+
+ select Round (avg(age),0) from students; // we don't get .23 something.
+
+select sum(age) from students; // caculate all age.
+
+
+ select gender,count(id) from students group by gender; // for finding male and female   count.
+ select city,gender,count(id) from students group by city,gender;
+
+
+
+13. 
+    For filtering the first starting name like Ra
+ select name from students where name like 'Ra%'; 
+
+
+  select name from students where name like '%i';
+
+   For filtering the last ending name like i.
+
+
+  select * from students where city ='chennai' or city ='goa';  and  select * from students where city in('Goa','chennai');
+
+  both are same.
+
+
+ select * from students where city Not in('Goa','chennai') -> it will ignore the this two city.
+
+   not - will ingore.
+  select name from students where name not like 'Ra%';
+
+
+ select name,age from students where age>24 and age<30;
+
+   print only 25 to 29
+
+
+ select name,age from students where age between 24 and 30;
+
+   print starting from 24 to 30 
+
+select name,age from students where age not between 24 and 30;
+
+  print aprt from 24 to 30.
+
+
+  if conditionn in mysql 
+
+ count(if(astatus ='p',1,null)) as present from Attendaence group by id;
+
+ if  astatus = p means it will print 1 and else null.
+
+
+
+14. Joins
+
+ inner join 
+  select * from salary;
+select Emp.Name,Emp.design, salary.sdate,salary.amt from Emp inner join salary 
+on Emp.id = salary.id;
+
+
+15. when case
+
+select name,city, (
+
+case 
+ when city = 'Bangalore' then 400
+ when city = 'chennai' then 350
+ when city = 'Goa' then 100
+end
+
+) as Amount from students;

@@ -1,0 +1,67 @@
+show databases;
+
+use dum;
+show tables;
+drop table Emp;
+create table Emp (
+
+id integer unsigned not null auto_increment,
+Name varchar(10) not null,
+Design varchar(45) not null,
+doj date not null,
+primary key (id)
+);
+
+insert into Emp (Name,Design,doj) values
+
+ ('Ram','Manager','2024-09-5'),
+ ('Sam','HR','2024-09-8'),
+ ('Tom','Sales','2024-09-23'),
+ ('Jerry','Sales','2024-09-18'),
+ ('Remo','Seninor Dev','2024-09-18');
+ 
+ select * from Emp;
+ drop table salary;
+ create table salary (
+
+sid integer unsigned not null auto_increment,
+id int not null,
+sdate date not null,
+amt int not null,
+primary key (sid)
+);
+
+insert into salary (id,sdate,amt) values
+
+(1,'2024-09-30',10000),
+(2,'2024-09-30',7500),
+(3,'2024-09-30',8000),
+(4,'2024-09-30',9000),
+(6,'2024-09-30',4000);
+
+select * from salary;
+
+select Emp.Name,Emp.design, salary.sdate,salary.amt from Emp inner join salary 
+on Emp.id = salary.id;
+
+select Emp.Name,Emp.design, salary.sdate,salary.amt from Emp left join salary 
+on Emp.id = salary.id;
+
+select Emp.Name,Emp.design, salary.sdate,salary.amt from Emp right join salary 
+on Emp.id = salary.id;
+
+# when case
+
+select id,name,city, (
+
+case 
+ when city = 'Bangalore' then 400
+ when city = 'chennai' then 350
+ when city = 'Goa' then 100
+ else  0 
+end
+
+) as Amount from students ;
+
+
+

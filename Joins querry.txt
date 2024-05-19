@@ -42,13 +42,13 @@ insert into salary (id,sdate,amt) values
 select * from salary;
 
 select Emp.Name,Emp.design, salary.sdate,salary.amt from Emp inner join salary 
-on Emp.id = salary.id;
+on Emp.id = salary.id; // it returns only comman data 
 
 select Emp.Name,Emp.design, salary.sdate,salary.amt from Emp left join salary 
-on Emp.id = salary.id;
+on Emp.id = salary.id; // left join - it returns all records from left table and matching record right table.
 
 select Emp.Name,Emp.design, salary.sdate,salary.amt from Emp right join salary 
-on Emp.id = salary.id;
+on Emp.id = salary.id; // it returns all records from right table and matching record left table.
 
 # when case
 

@@ -1,0 +1,38 @@
+show databases;
+use myfile;
+show tables;
+drop table Address;
+drop table Person;
+
+create table Person(
+PersonId int not null auto_increment,
+FirstName varchar(20),
+LastName varchar(20),
+primary key(PersonId)
+);
+
+
+create table Address(
+Addressid int not null auto_increment,
+PersonId int not null,
+City varchar(20),
+State varchar(20),
+primary key(Addressid),
+foreign key (PersonId) references Person(PersonId)
+);
+
+insert into Person (FirstName,LastName) values
+('Ram','raj'),
+('vj','raj'),
+('Rajini','murugan');
+
+insert into  Address (PersonId,City,State) values
+
+(1,'Chennai','TN'),
+(2,'Bangalore','Ka'),
+(3,'Kochi','KL');
+
+select Person.FirstName,Person.LastName, Address.City, Address.State from Person left join Address 
+on Person.PersonId = Address.PersonId;
+ 
+

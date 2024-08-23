@@ -1,0 +1,40 @@
+show databases;
+
+#create database zopsmart;
+
+use zopsmart;
+
+drop table if exists details;
+
+create table details(
+Id int not null auto_increment,
+Name varchar(20) not null,
+Contact varchar(10) not null,
+primary key(Id)
+);
+
+
+insert into details (Name,Contact) values
+
+('Vijay','9876543210'),
+('Bheemji',8076896567),
+('Doss',8767909812);
+
+
+
+
+alter table details add Gender varchar(10) not null after Name;
+
+update details set Gender = 'Male' where Name = 'Vijay';
+update details set Gender = 'male' where Name = 'Bheemji';
+update details set Gender = 'male' where Name = 'Doss';
+
+update details set Name = 'Ram' where id = 1;
+
+#delete from details where id = 2;
+
+update details set Contact = '' where id =2;
+
+select * from details order by Name Asc;
+#SELECT * FROM details ORDER BY Name DESC;
+

@@ -1,6 +1,19 @@
   database user name is Vijay
   pwd Vijay@123
 
+Mysql Define ?
+
+MySQL is a relational database management system (RDBMS) developed by Oracle that is based on structured query language (SQL).
+
+The data in RDBMS is stored in database objects called tables. A table is a collection of related data entries and it consists of columns and rows.
+
+          SQL  
+RDMS <------------> Database 
+
+Following RDMBS are manageing the sql.
+1.Oracle
+2.Mysql or Mysql Server
+3.Postgresql
 
 1.
 

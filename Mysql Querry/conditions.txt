@@ -1,0 +1,31 @@
+show databases;
+use myfile;
+show tables;
+select * from students;
+
+select name,age, city, (
+
+ case 
+  when city = 'Bangalore' then 300
+  when city ='chennai' then 280
+ end
+ 
+) as Km from students;
+alter table students
+DROP COLUMN State;
+
+SET SQL_SAFE_UPDATES = 0;
+-- Step 1: Add the State column (if it doesn't exist yet)
+ALTER TABLE students ADD State VARCHAR(20) NOT NULL;
+
+-- Step 2: Update the State column based on the city column
+UPDATE students
+SET State = CASE
+  WHEN city = 'chennai' THEN 'TN'
+  WHEN city = 'Bagalore' THEN 'KA'
+  -- Add other cities and their corresponding states as needed
+  ELSE 'Others'
+END;
+
+select * from students;
+

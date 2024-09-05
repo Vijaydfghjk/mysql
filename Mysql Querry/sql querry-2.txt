@@ -1,0 +1,108 @@
+#create database demo;
+use demo;
+
+drop table temp;
+
+
+create table temp(
+
+id int not null auto_increment,
+name varchar(10) not null,
+emid int not null,
+city varchar(10) not null,
+primary key(id)
+);
+
+#insert into temp values (null,'Vijay',11,'Bangalore');
+
+insert into temp (name,emid,city) values
+
+('Ram',22,'Bangalore'),
+('sam',33,'Bangalore'),
+('Ken',44,'Chennai'),
+('somu',55,'Chennai'),
+('momo',66,'Chennai');
+
+# Adding tables clumn
+
+alter table temp
+ add Gender varchar(8) not null after name;
+ 
+ 
+ 
+ update temp set Gender = 'male' where id =1;
+ 
+ insert into temp values (null,'Sheela','Female',55,'chennai');
+ 
+# update tables clumn 
+
+ update temp set Gender = 'male' where id in (2,3,4,5);
+ 
+ select * from temp;
+
+# adding column
+ 
+ alter table temp
+ 
+ add mark int not null,
+ add Result varchar (10) not null;
+ 
+ 
+  select * from temp;
+ /* 
+ You cannot insert values directly into a single column 
+ for that we should use update.
+ insert into temp (mark) values
+ (50),
+ (70),
+ (29),
+ (32),
+ (40),
+ (90);
+ */
+ #select * from temp;
+ 
+ # update
+update temp set mark = 50 where id = 1;
+update temp set mark = 50 where id = 1;
+update temp set mark = 70 where id = 2;
+update temp set mark = 29 where id = 3;
+update temp set mark = 32 where id = 4;
+update temp set mark = 40 where id = 5;
+update temp set mark = 90 where id = 6;
+
+
+ SET SQL_SAFE_UPDATES = 0;
+ /*
+ When you use SET SQL_SAFE_UPDATES = 0;, you are essentially disabling safe update mode, 
+ which allows you to execute UPDATE statements without a WHERE clause that uses a key column.
+ 
+ */
+ # condition
+ 
+ update temp 
+ set Result = case
+              when mark >=35 then 'pass'
+			  else 'fail'
+end;
+ 
+ 
+
+ alter table temp 
+ add final varchar(10) not null;
+
+select * from temp;
+ # condition
+
+update temp
+ set final = case
+    when gender = 'male' then 'M'
+    else 'F'
+    end;
+ 
+ select * from temp;
+ 
+#truncate table temp; delete the only values
+
+show tables;
+select * from temp;

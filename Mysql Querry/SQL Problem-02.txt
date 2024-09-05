@@ -1,0 +1,35 @@
+2. Display the Highest payed employees in each department?
+
+
+show databases;
+
+#create database zopsmart;
+
+use zopsmart;
+
+drop table if exists emp;
+  create table emp (
+  id int not null ,
+  sal int not null,
+  Ename varchar(20) not null
+  );
+
+insert into emp (id,sal,Ename)value
+
+(10,4000,'King'),
+(10,3000,'Black'),
+(20,5000,'White'),
+(20,6000,'Red'),
+(30,4500,'Green');
+
+select	 * from emp;
+/*
+Display the Highest payed employees in each department?
+select max(sal), id
+from emp
+group by id; 
+*/
+
+select count(*) , id
+from emp 
+group by id;

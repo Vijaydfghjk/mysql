@@ -27,3 +27,7 @@ FROM sales
 GROUP BY salesperson_name
 HAVING SUM(sale_amount) > 500;
 
+ DECIMAL(10, 2)- > means 10 - total number of digits 300.00 and total 5 dights 
+3 digits before the decimal point
+2 digits after the decimal point (.00)
+so valid.

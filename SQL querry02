@@ -1,0 +1,29 @@
+
+Having 
+
+The HAVING clause is essential when you need to filter based on the results of an aggregation like 
+SUM, COUNT, AVG, etc. It operates after the data has been grouped, whereas WHERE works on individual rows before any grouping occurs.
+
+CREATE TABLE sales (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    salesperson_name VARCHAR(100),
+    sale_amount DECIMAL(10, 2),
+    sale_date DATETIME
+);
+
+INSERT INTO sales (salesperson_name, sale_amount, sale_date) VALUES
+('Alice', 500.00, '2024-01-01 10:00:00'),
+('Bob', 300.00, '2024-01-02 11:00:00'),
+('Alice', 700.00, '2024-01-03 12:00:00'),
+('Charlie', 150.00, '2024-01-04 13:00:00'),
+('Bob', 200.00, '2024-01-05 14:00:00'),
+('Alice', 800.00, '2024-01-06 15:00:00'),
+('Charlie', 250.00, '2024-01-07 16:00:00'),
+('Bob', 500.00, '2024-01-08 17:00:00');
+
+
+SELECT salesperson_name, SUM(sale_amount) AS total_sales
+FROM sales
+GROUP BY salesperson_name
+HAVING SUM(sale_amount) > 500;
+

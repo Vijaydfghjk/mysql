@@ -31,3 +31,29 @@ HAVING SUM(sale_amount) > 500;
 3 digits before the decimal point
 2 digits after the decimal point (.00)
 so valid.
+
+View 
+
+A view is a named SQL query that can be treated like a table. 
+It is a virtual table created by selecting data from one or more tables, and it shows the result of a SELECT query when queried itself.
+
+create view population 
+as 
+select users.name,users.city,users.age,users.country, cities.state,cities.population
+from users inner join cities on users.city = cities.city;
+
+
+select * from population
+where country ='USA';
+
+
+and if any modification in view 
+
+create or replace view population 
+as 
+select users.name,users.city,users.age,users.country, cities.state,cities.population
+from users inner join cities on users.city = cities.city
+order by age;
+
+
+

@@ -59,3 +59,30 @@ foreign key (product_id) references products(id)
 insert into order_items(order_id,product_id,quantity,price) values
 
 (1,1,1,999.99);
+
+
+join 
+
+What: Fetch related data from multiple tables using relationships (foreign keys).
+
+Why: In real systems, data is often split into multiple tables for normalization.
+
+select 
+users.name,
+users.email,products.name,
+products.description, 
+products.price, 
+order_items.quantity, 
+orders.order_date 
+from 
+users 
+inner join 
+products on products.id =  users.id
+left join 
+order_items on order_items.product_id = products.id  
+left join 
+orders on orders.user_id = order_items.product_id;
+
+
+
+

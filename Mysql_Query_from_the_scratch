@@ -84,5 +84,9 @@ left join
 orders on orders.user_id = order_items.product_id;
 
 
+about Find() // Fetching the all record 
+about Take() // Fetching Only the First Match (without any ordering)
+about First() // Fetching the First Record After Ordering
+
 
 

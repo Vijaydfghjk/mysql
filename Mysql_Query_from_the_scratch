@@ -43,6 +43,11 @@ insert into orders(user_id,status) values
 (1,'Pending');
 
 
+## Deleting the Table with Foreign_key
+
+SET FOREIGN_KEY_CHECKS = 0;
+DROP TABLE students;
+SET FOREIGN_KEY_CHECKS = 1;
 
 
 create table order_items(
